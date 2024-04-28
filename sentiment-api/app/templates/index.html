@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tester l'API</title>
+</head>
+<body>
+    <h1>Tester l'API</h1>
+    <form id="tweetForm">
+        <input type="text" id="tweet" placeholder="Entrez des données ici" />
+        <button type="button" onclick="callPredictAPI()">Envoyer</button>
+    </form>
+    <p id="apiResponse">Réponse de l'API s'affichera ici...</p>
+
+    <button onclick="callBadPredictAPI()">Mauvaise Prédiction!</button>
+
+    <script>
+        function callPredictAPI() {
+            document.getElementById('apiResponse').textContent = 'Attente de la réponse ...';
+            var data = document.getElementById('tweet').value;
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({tweet: data})
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('apiResponse').textContent = 'Réponse: ' + data.sentiment;
+            })
+            .catch((error) => {
+                console.error('Erreur:', error);
+            });
+        }
+
+        function callBadPredictAPI() {
+            fetch('/bad-predict', {
+                method: 'GET'
+            })
+            .catch((error) => {
+                console.error('Erreur:', error);
+            });
+        }
+    </script>
+</body>
+</html>
