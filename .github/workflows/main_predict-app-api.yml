@@ -56,7 +56,10 @@ jobs:
 
   - name: Run pytest
     run: |
-      pip install pytest pytest-mock
+      python -m venv testenv
+      source antenv/bin/activate
+      pip install setuptools
+      pip install -r requirements.txt
       cd sentiment-api/app
       pytest ../tests/
       
