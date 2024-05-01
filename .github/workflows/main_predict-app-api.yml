@@ -62,7 +62,7 @@ jobs:
       pip install -r requirements.txt
       cd sentiment-api/app
       pytest ../tests/
-      rm -r testenv
+      rm -r ../../testenv
       
   # Azure login
   # - uses: azure/login@v1
