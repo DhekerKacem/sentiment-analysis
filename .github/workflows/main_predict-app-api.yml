@@ -53,6 +53,10 @@ jobs:
       --file pytorch_model.bin \
       --account-key sm7lvGvy7ot56UCGTbzHdrtS/zvTnhnj0QTQm8zs3WWY2M1rbBiUkPguUKopgfVFxVYzBkPBdkeT+AStVq3vUg== \
       --auth-mode key
+
+  - name: Run pytest
+    run: |
+      pytest ../tests/
       
   # Azure login
   # - uses: azure/login@v1
