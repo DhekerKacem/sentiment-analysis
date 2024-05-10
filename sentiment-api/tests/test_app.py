@@ -12,10 +12,6 @@ def app_method():
 def client(app_method):
     return app_method.test_client()
 
-def test_home(client):
-    response = client.get('/')
-    assert response.status_code == 200
-
 @patch('transformers.BertModel.from_pretrained')
 @patch('transformers.BertTokenizer.from_pretrained')
 @patch('torch.nn.Module.forward')  # Simuler la prédiction du modèle

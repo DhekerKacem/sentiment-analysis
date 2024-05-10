@@ -1,8 +1,8 @@
 import streamlit as st
 import requests
 
-API_URL = "http://localhost:8000/predict"
-REPORT_URL = "http://localhost:8000/bad-predict"
+API_URL = "http://predict-app-api.azurewebsites.net/predict"
+REPORT_URL = "http://predict-app-api.azurewebsites.net/bad-predict"
 
 st.title('Sentiment Analysis with BERT')
 
