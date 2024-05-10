@@ -76,12 +76,7 @@ def handle_bad_predict(e):
 app.register_error_handler(406, handle_bad_predict)
 
 
-# Route pour la page d'accueil qui charge index.html
-@app.route('/')
-def home():
-    return render_template('index.html')
-
 if __name__ == '__main__':
-    app.run('0.0.0.0',debug=True, port=8880)  # Lancer l'application
+    app.run('0.0.0.0',debug=True, port=8000)  # Lancer l'application
 
 
